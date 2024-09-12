@@ -93,6 +93,3 @@ if __name__ == "__main__":
         assert StringShortener.get_shortened_url(url) == shortened
 
     print("1000 URLs processed successfully, including potential collisions.")
-
-    # Count the distribution of shortened URL lengths
-    lengths = [len(shortened) for shortened in StringShortener.short_to_long.keys()]
