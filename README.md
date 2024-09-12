@@ -1,4 +1,4 @@
-# Short URL Service
+# Short Code for Short URL Service
 
 A lightweight and efficient URL shortening service built with Python. This service generates short codes for long URLs using a custom hashing algorithm.
 
