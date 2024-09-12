@@ -1,17 +1,17 @@
 # Short Code for Short URL Service
 
-A lightweight and efficient URL shortening service built with Python. This service generates short codes for long URLs using a custom hashing algorithm.
+A lightweight, efficient URL shortening service implemented in Python. This service generates short codes for long URLs using a custom hashing algorithm, providing a balance between code brevity and collision resistance.
 
 ## Features
 
-- Generate short codes for long URLs
+- Generate short codes (5-8 characters) for long URLs
 - Retrieve original URLs from short codes
-- Collision-resistant hashing algorithm
-- Configurable short code length (5-8 characters)
+- Collision-resistant hashing algorithm using SHA256 and Base64 encoding
+- Adjustable short code length to minimize collisions
 - In-memory storage of URL mappings
 - Pure Python implementation with no external dependencies
 
-## Prerequisites
+## Requirements
 
 - Python 3.6+
 
@@ -48,10 +48,14 @@ print(f"Existing short code: {existing_short_code}")
 
 ## How It Works
 
-1. The service uses SHA256 hashing combined with Base64 encoding to generate short codes.
+1. The service uses SHA256 hashing combined with Base64 encoding to generate initial short codes.
 2. It starts with a 5-character code and increases the length up to 8 characters to handle collisions.
 3. If collisions persist, it modifies the input to the hash function and tries again.
 4. The service maintains an in-memory dictionary to store mappings between short codes and original URLs.
+
+## Performance
+
+The service includes a built-in test that processes 1000 unique URLs, demonstrating its ability to handle potential collisions effectively.
 
 ## Limitations
 
@@ -63,6 +67,7 @@ print(f"Existing short code: {existing_short_code}")
 - Implement persistent storage (e.g., database) for URL mappings.
 - Create a web interface and API for easier access.
 - Add user authentication and custom short code creation.
+- Implement rate limiting to prevent abuse.
 
 ## Contributing
 
